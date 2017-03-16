@@ -1,62 +1,27 @@
 extends ../layout
 
 block content
-  .container
-    #carousel-example-generic.carousel.slide(data-ride="carousel")
+  .col-md-8
+    #myCarousel.carousel.slide
       ol.carousel-indicators
-        li.active(data-target="#carousel-example-generic",data-slide-to="0")
-        li(data-target="#carousel-example-generic",data-slide-to="1")
-        li(data-target="#carousel-example-generic",data-slide-to="2")
-      .carousel-inner#home(role="listbox")
+        li.active(data-target="#myCarousel",data-slide-to="0")
+        li(data-target="#myCarousel",data-slide-to="1")
+        li(data-target="#myCarousel",data-slide-to="2")
+      .carousel-inner
         .item.active
-          a(href="#")
-            img(src="../images/1.jpg",alt="1 slide")
-          .carousel-caption
+          img(src="/images/v1.jpg",alt="First slide")
+          .carousel-caption 
+            h1 华中科技大学软件学院义工部东湖磨山义工
         .item
-          a(href="#")
-            img(src="../images/2.jpg",alt="2 slide")
-          .carousel-caption
+          img(src="/images/v2.jpg",alt="Second slide")
+          .carousel-caption 
+            h1 华中科技大学软件学院义工部东图书馆义工
         .item
-          a(href="#")
-            img(src="../images/3.jpg",alt="3 slide")
-          .carousel-caption      
-      a.left.carousel-control(href="../imooc/Hello#carousel-example-generic",role="button",data-slide="prev")
-        span.glyphicon.glyphicon-chevron-left(aria-hidden="true")
-        span.sr-only Previous
-      a.right.carousel-control(href="../imooc/Hello#carousel-example-generic",role="button",data-slide="next")
-        span.glyphicon.glyphicon-chevron-right(aria-hidden="true")
-        span.sr-only Next
-  .container
-    .col-md-4
-      .news_head 新闻中心
-        a.fr(href="#") More
-      .pic_news
-        a(href="#")
-          img(src="../images/news.jpg")
-        p <<新课程开课
-        p 【名师】李开丁教授
-        p 【主讲】高等数学
-        p 【时间】10.10
-    .col-md-4
-      .news_head 新闻中心
-        a.fr(href="#") More
-      .pic_news
-        a(href="#")
-          img(src="../images/news.jpg")
-        p <<新课程开课
-        p 【名师】李开丁教授
-        p 【主讲】高等数学
-        p 【时间】10.10
-    .col-md-4
-      .news_head 新闻中心
-        a.fr(href="#") More
-      .pic_news
-        a(href="#")
-          img(src="../images/news.jpg")
-        p <<新课程开课
-        p 【名师】李开丁教授
-        p 【主讲】高等数学
-        p 【时间】10.10 
+          img(src="/images/v3.jpg",alt="Third silde")
+          .carousel-caption 
+            h1 华中科技大学软件学院义工部校医院义工
+      a.carousel-control.left(href="#myCarousel",data-slide="prev") &lsaquo;
+      a.carousel-control.right(href="#myCarousel",data-slide="next") &rsaquo;
   .container
     .row
       each cat in categories

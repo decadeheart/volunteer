@@ -54,3 +54,6 @@ a:hover,a:active{
   line-height: 30px;
   text-indent: 20px;
 }
+#nav-text li a{
+  text-indent: 50%;
+}
