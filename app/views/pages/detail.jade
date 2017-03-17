@@ -3,9 +3,8 @@ extends ../layout
 block content
 	.container
 		.row
-			.col-md-7
-				video(allowFullScreen="true",quality="high",width="720",height="600",align="middle",controls="controls" autoplay="autoplay")
-					source(src="http://www.imooc.com/video/3972",type="video/mp4")
+			.col-md-4
+				img(src="/upload/#{movie.poster}", alt="#{movie.title}",style="height:500px;width:720px")
 				.panel.panel-defatul
 					.panel-heading
 						h3 评论区
@@ -47,19 +46,18 @@ block content
 
 								hr
 								hr
-			.col-md-5
+			.col-md-1
+			.col-md-5(style="float:right")
 				dl.dl-horizontal
-					dt 名字
+					dt 活动名字
 					dd=movie.title
-					dt 教师
+					dt 承办单位
 					dd=movie.doctor
-					dt 国家
-					dd=movie.country
-					dt 语言
-					dd=movie.language
 					dt 年份
 					dd=movie.year
 					dt 简介
 					dd=movie.summary
+					dd
+						a.btn.btn-primary(href="#",role="button") 我要报名
 
 	script(src="/js/detail.js")

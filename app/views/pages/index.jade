@@ -1,7 +1,7 @@
 extends ../layout
 
 block content
-  .col-md-8
+  .col-md-8(style="margin-bottom:40px")
     #myCarousel.carousel.slide
       ol.carousel-indicators
         li.active(data-target="#myCarousel",data-slide-to="0")
@@ -42,4 +42,4 @@ block content
 
                     .caption
                       h4 #{item.title}
-                      p: a.btn.btn-primary(href="/movie/#{item._id}", role="button") 观看
+                      p: a.btn.btn-primary(href="/movie/#{item._id}", role="button") 查看详情

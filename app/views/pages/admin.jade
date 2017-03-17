@@ -1,17 +1,13 @@
 extends ../layout
 
 block content
-	.container
+	.col-md-8
 		.row
 			form.form-horizontal(method="post", action="/admin/movie",enctype="multipart/form-data")
 				if movie._id
 					input(type="hidden", name="movie[_id]", value=movie._id)
 				.form-group
-					label.col-sm-2.control-label 豆瓣同步
-					.col-sm-10
-						input#douban.form-control(type="text")
-				.form-group
-					label.col-sm-2.control-label(for="inputCategory") 电影分类
+					label.col-sm-2.control-label(for="inputCategory") 义工分类
 					.col-sm-10
 						input#inputCategory.form-control(type="text",name="movie[categoryName]",value=movie.categoryName)
 				.form-group
@@ -24,21 +20,13 @@ block content
 								input(type="radio",name="movie[category]",value=cat._id)
 							|	#{cat.name}
 				.form-group
-					label.col-sm-2.control-label(for="inputTitle") 名字
+					label.col-sm-2.control-label(for="inputTitle") 活动名字
 					.col-sm-10
 						input#inputTitle.form-control(type="text",name="movie[title]",value=movie.title)
 				.form-group
-					label.col-sm-2.control-label(for="inputTitle") 教师	
+					label.col-sm-2.control-label(for="inputTitle") 承办单位	
 					.col-sm-10
 						input#inputDirector.form-control(type="text",name="movie[doctor]",value=movie.doctor)
-				.form-group
-					label.col-sm-2.control-label(for="inputCountry") 国家 
-					.col-sm-10
-						input#inputCountry.form-control(type="text",name="movie[country]",value=movie.country)
-				.form-group
-					label.col-sm-2.control-label(for="inputLanguage") 语种
-					.col-sm-10
-						input#inputLanguage.form-control(type="text",name="movie[language]",value=movie.language)
 				.form-group
 					label.col-sm-2.control-label(for="inputPoster") 海报地址
 					.col-sm-10
@@ -48,21 +36,13 @@ block content
 					.col-sm-10
 						input#uploadPoster(type="file",name="uploadPoster")
 				.form-group
-					label.col-sm-2.control-label(for="inputFlash") 片源地址
-					.col-sm-10
-						input#inputFlash.form-control(type="text",name="movie[flash]", value=movie.flash)
-				.form-group
-					label.col-sm-2.control-label(for="uploadVideo") 视频上传
-					.col-sm-10
-						input#uploadVideo(type="file",name="uploadVideo")
-				.form-group
 					label.col-sm-2.control-label(for="inputYear") 年份
 					.col-sm-10
 						input#inputYear.form-control(type="number",name="movie[year]",value=movie.year)
 				.form-group
 					label.col-sm-2.control-label(for="inputSummary") 简介
 					.col-sm-10
-						input#inputSummary.form-control(type="text",name="movie[summary]",value=movie.summary)
+						textarea#inputSummary.form-control(type="text",name="movie[summary]",value=movie.summary,row="100",col="20")
 				.form-group
 					.col-sm-offset-2.col-sm-10
 						button.btn.btn-default(type="submit") 录入
