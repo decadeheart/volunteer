@@ -8,9 +8,9 @@ block content
 					.list-group#about-list
 						a.list-group-item.active(href="#") 控制台
 						a.list-group-item(href="/") 首页
-						a.list-group-item(href="/admin/movie/new") 活动录入
+						a.list-group-item(href="/movie") 活动录入
 						a.list-group-item(href="/post") 帖子录入
-						a.list-group-item(href="/admin/movie/list") 活动列表
+						a.list-group-item(href="/group") 活动列表
 						a.list-group-item(href="/admin/user/list") 用户列表
 						a.list-group-item(href="/postlist") 帖子列表
 				.col-md-9#about-content
@@ -18,7 +18,10 @@ block content
 						.panel-heading 最新帖子
 						.panel-body
 							.row 
-								each item in posts
+								each item in movies
 									.caption(style="font-size:20px")
 										span #{moment(item.meta.updateAt).format('MM/DD/YYYY')}&nbsp;&nbsp;
-										span #{item.title}	
+										span #{item.title}
+										span(style="float:right") 
+											a.btn(href="/admin/movie/#{item._id}", role="button",style="background-color:#e00010;color:white") admin
+									hr

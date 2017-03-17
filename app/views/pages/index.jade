@@ -1,28 +1,36 @@
 extends ../layout
 
 block content
-  .col-md-8(style="margin-bottom:40px")
-    #myCarousel.carousel.slide
-      ol.carousel-indicators
-        li.active(data-target="#myCarousel",data-slide-to="0")
-        li(data-target="#myCarousel",data-slide-to="1")
-        li(data-target="#myCarousel",data-slide-to="2")
-      .carousel-inner
-        .item.active
-          img(src="/images/v1.jpg",alt="First slide")
-          .carousel-caption 
-            h1 华中科技大学软件学院义工部东湖磨山义工
-        .item
-          img(src="/images/v2.jpg",alt="Second slide")
-          .carousel-caption 
-            h1 华中科技大学软件学院义工部东图书馆义工
-        .item
-          img(src="/images/v3.jpg",alt="Third silde")
-          .carousel-caption 
-            h1 华中科技大学软件学院义工部校医院义工
-      a.carousel-control.left(href="#myCarousel",data-slide="prev") &lsaquo;
-      a.carousel-control.right(href="#myCarousel",data-slide="next") &rsaquo;
   .container
+    .col-md-10(style="margin-bottom:40px")
+      #myCarousel.carousel.slide
+        ol.carousel-indicators
+          li.active(data-target="#myCarousel",data-slide-to="0")
+          li(data-target="#myCarousel",data-slide-to="1")
+          li(data-target="#myCarousel",data-slide-to="2")
+        .carousel-inner
+          .item.active
+            img(src="/images/v1.jpg",alt="First slide")
+            .carousel-caption 
+              h1 华中科技大学软件学院义工部东湖磨山义工
+          .item
+            img(src="/images/v2.jpg",alt="Second slide")
+            .carousel-caption 
+              h1 华中科技大学软件学院义工部东图书馆义工
+          .item
+            img(src="/images/v3.jpg",alt="Third silde")
+            .carousel-caption 
+              h1 华中科技大学软件学院义工部校医院义工
+        a.carousel-control.left(href="#myCarousel",data-slide="prev") &lsaquo;
+        a.carousel-control.right(href="#myCarousel",data-slide="next") &rsaquo;
+    .col-md-2
+        .panel.panel-default
+          .panel-heading(style="background-color:#e00010") 公告
+          .panel-body
+            p 1>欢迎各位同学参加义工
+            p 2>社区板块功能暂时尚未开放
+            p 3>网站刚建立,出现bug请谅解,有问题及时反馈,谢谢大家      
+  .container(style="margin-top:40px")
     .row
       each cat in categories
         .panel.panel-default
@@ -42,4 +50,4 @@ block content
 
                     .caption
                       h4 #{item.title}
-                      p: a.btn.btn-primary(href="/movie/#{item._id}", role="button") 查看详情
+                      p: a.btn(href="/movie/#{item._id}", role="button",style="background-color:#e00010;color:white") 查看详情

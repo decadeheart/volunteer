@@ -1,9 +1,11 @@
 var Movie = require('../models/movie') //引入movie模块
 var Category = require('../models/category') //引入movie模块
 var Comment = require('../models/comment') //引入user模块
+var Apply=require('../models/apply')
 var _ = require('underscore')
 var fs=require('fs')//读取文件
 var path =require('path')
+
 
     //detail page
 exports.detail=function(req,res){
@@ -41,6 +43,16 @@ exports.new =function(req,res){
 
     })
 }
+exports.add =function(req,res){
+    Category.find({},function(err,categories){
+        res.render('admin', {
+            title: '后台录入页',
+            categories:categories,
+            movie: {}
+        })
+
+    })
+}
 
     // admin update movie
 exports.update=function(req,res){
@@ -58,7 +70,21 @@ exports.update=function(req,res){
             })
         }
     }
+exports.updateMovie=function(req,res){
+        var id = req.params.id
 
+        if (id) {
+            Movie.findById(id, function(err, movie) {
+                Category.find({},function(err,categories){
+                    res.render('admin', {
+                        title: '后台更新页',
+                        movie: movie,
+                        categories: categories
+                    })
+                })
+            })
+        }
+    }
 //admin poster
 exports.savePoster=function(req,res,next){
     var posterData=req.files.uploadPoster
@@ -174,21 +200,19 @@ exports.save= function(req,res){
 
 
 //list page
-exports.list = function(req, res) {
-  Movie.find({})
-    .populate('category', 'name')
-    .exec(function(err, movies) {
-      if (err) {
-        console.log(err)
-      }
-
-      res.render('list', {
-        title: '列表页',
-        movies: movies
-      })
-    })
+exports.group =function(req,res) {
+    Movie.find({})
+        .populate('category','name')
+        .exec(function(err,movies){
+           if(err){
+            console.log(err)
+           } 
+           res.render('list',{
+            title:'list',
+            movies:movies
+           })
+        })
 }
-
 
     //list delete movie
 exports.del=function(req,res){
@@ -203,4 +227,44 @@ exports.del=function(req,res){
                 }
             })
         }
+    }
+//control page
+exports.control=function(req,res){
+    Movie.find({},function(err,movies){
+        res.render('control',{
+            title:'control',
+            movies:movies
+        })
+    })
+}
+
+exports.success=function(req,res){
+        var id = req.params.id
+        Movie.findById(id, function(err, movie) {
+            Apply
+                .find({movie: id})
+                .exec(function(err,applys){
+                    console.log(applys)
+                    res.render('success', {
+                        title: movie.title,
+                        movie: movie,
+                        applys:applys,
+                    })
+                })
+        })
+    }
+exports.apply=function(req,res){
+        var id = req.params.id
+        Movie.findById(id, function(err, movie) {
+            Apply
+                .find({movie: id})
+                .exec(function(err,applys){
+                    console.log(applys)
+                    res.render('apply', {
+                        title: movie.title,
+                        movie: movie,
+                        applys:applys,
+                    })
+                })
+        })
     }

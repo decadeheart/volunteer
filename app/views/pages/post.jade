@@ -1,7 +1,7 @@
 extends ../layout
 
 block content
-	.container
+	.col-md-8
 		.row
 			form.form-horizontal(method="post", action="/post/new")
 				//hidden input
@@ -18,4 +18,4 @@ block content
 					label.col-sm-2.control-label(for="inputTitle") 内容
 					.col-sm-10
 						Textarea#inputText.form-control(type="text",name="post[text]",value="#{post.text}",rows="15",cols="100")
-				button.btn.btn-primary(type="submit") 发帖
+				button.btn(type="submit",style="float:right;background-color:#e00010;color:#fff") 发帖

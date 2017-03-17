@@ -3,6 +3,7 @@ var User = require('../app/controllers/user') //引入User模块
 var Movie= require('../app/controllers/movie') //引入movie模块
 var Comment=require('../app/controllers/comment')
 var Category=require('../app/controllers/category')
+var Apply=require('../app/controllers/apply')
 var Post=require('../app/models/post')
 var markdown=require('markdown').markdown;
 
@@ -100,9 +101,19 @@ app.post('/post/new', function(req, res) {
     });
 
   }
-  
-
 });
+// 编辑帖子
+app.get('/apply',function(req,res){
+  res.render('apply',{
+    title:'我要报名',
+    post:{
+      title:'',
+      writer:'',
+      text:''
+    }
+  })
+})
+
     //关于
     app.get('/about',function(req,res,next){
         res.render('about',{
@@ -164,18 +175,7 @@ app.post('/post/new', function(req, res) {
             })
         }
     })
-    app.get('/control',function(req,res,next){
-        Post.fetch(function(err,posts){
-            if(err){
-              console.log(err)
-            }else{
-              res.render('control',{
-                title:'控制台',
-                posts:posts
-              })
-            }
-        })
-    })    
+  
     //Index
     app.get('/', Index.index)
      //User
@@ -188,21 +188,22 @@ app.post('/post/new', function(req, res) {
 
 
     //Movie
+    app.get('/control',User.signinRequired,User.adminRequired,Movie.control)
+    app.get('/admin/movie/:id',Movie.apply,User.signinRequired,User.adminRequired)
+    app.get('/success/movie/:id',Movie.success)
     app.get('/movie/:id', Movie.detail)
-    app.get('/admin/movie/new',User.signinRequired,User.adminRequired,Movie.new)
-    app.get('/admin/movie/update/:id',User.signinRequired,User.adminRequired,Movie.update)
+    app.get('/movie',User.signinRequired,User.adminRequired,Movie.add)
+    app.get('/movie/update/:id',User.signinRequired,User.adminRequired,Movie.updateMovie)
     app.post('/admin/movie',User.signinRequired,User.adminRequired,Movie.savePoster,Movie.save)
-    app.get('/admin/movie/list',User.signinRequired,User.adminRequired,Movie.list)
+    // app.get('/list',User.signinRequired,User.adminRequired,Movie.group)
+    app.get('/group',User.signinRequired,User.adminRequired,Movie.group)
     app.delete('/admin/movie/list',User.signinRequired,User.adminRequired,Movie.del)
-    //post
-    // app.get('/post/:id',Post.detail)
-    // app.get('/post/new',User.signinRequired,Post.new)
-    // app.get('/post/update/:id',User.signinRequired,Post.update)
-    // app.post('/post',User.signinRequired,Post.save)
-    // app.get('/post/list',User.signinRequired,Post.list)
 
     //Comment
     app.post('/user/comment',User.signinRequired,Comment.save)
+    //apply
+    app.post('/apply',Apply.save)
+    app.delete('admin/movie/:id',User.signinRequired,User.adminRequired,Apply.del)
 
     //Category
     app.get('/admin/category/new',User.signinRequired,User.adminRequired,Category.new)

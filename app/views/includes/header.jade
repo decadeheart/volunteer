@@ -1,10 +1,12 @@
 .container
   .row
     .page-header.clearfix(style="margin-top:30px")
-      h3= title 
-      .col-md-4(style="padding-left:0")  
+      .col-md-1
+        img(src="/images/logo.jpg",style="width:100px;height:100px")
+      .col-md-3(style="padding-left:10px;float:left")
+        h3=title  
         small 华中科技大学院系义工活动平台
-      .col-md-8
+      .col-md-8(style="margin-top:40px")
         form(mthod="GET",action="/results")
           .input-group.col-sm-4.pull-right
             span.input-group-addon
@@ -14,7 +16,7 @@
               button.btn.btn-default(type="sybmit") 搜索
 .col-md-2
   ul.nav.nav-pills.nav-stacked#nav-text
-    li.active
+    li(style="background-color:#e00010")
       a(href="/") 主页
     li
       a(href="/about") 关于
@@ -67,13 +69,13 @@
           button.btn.btn-default(type="button",data-dismiss="modal") 关闭
           button.btn.btn-success(type="submit") 提交
 
-footer.navbar-fixed-bottom.footer
+footer.navbar-fixed-bottom.footer(style="background-color:#e00010")
   .container
     .row
       .col-md-3
         img(src="/images/qrcode.jpg")
       .col-md-4
-        p &copy;&nbsp;2017&nbsp&nbsp;丁丁教育网
+        p &copy;&nbsp;2017&nbsp&nbsp;华中大义工部
       .col-md-4
         p
           a(href="#") GitHub
