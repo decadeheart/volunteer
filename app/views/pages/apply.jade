@@ -1,0 +1,49 @@
+extends ../layout
+
+block content
+	.container
+		.row
+			.col-md-4
+				img(src="/upload/#{movie.poster}", alt="#{movie.title}",style="height:500px;width:720px")
+				.panel.panel-defatul
+					.panel-heading
+						h3 报名人员
+					.panel-body
+						ul.media-list
+							.container
+								.row
+									table.table.table-hover.table-bordered
+										thead
+											tr
+												th 姓名
+												th 学号
+												th 班级
+												th 空闲时间
+												th 联系方式
+												th 备注信息
+												th 时间
+												th 删除
+										tbody
+											each item in applys
+												tr(class="item-id-#{item._id}")
+													td #{item.name}
+													td #{item.ID}
+													td #{item.course}
+													td #{item.sparetime}
+													td #{item.contact}
+													td #{item.information}
+													td #{moment(item.meta.updateAt).format('YYYY-MM-DD HH:mm:ss')}
+													td
+														button.btn.btn-danger.del(type="button",data-id="#{item._id}") 删除
+			.col-md-1
+			.col-md-5(style="float:right")
+				dl.dl-horizontal
+					dt 活动名字
+					dd=movie.title
+					dt 承办单位
+					dd=movie.doctor
+					dt 年份
+					dd=movie.year
+					dt 简介
+					dd=movie.summary
+	script(src="/js/apply.js")

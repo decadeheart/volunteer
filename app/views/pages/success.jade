@@ -1,0 +1,40 @@
+extends ../layout
+
+block content
+	.container
+		.row
+			.col-md-6
+				img(src="/upload/#{movie.poster}", alt="#{movie.title}",style="height:500px;width:720px")
+				.panel.panel-defatul
+					.panel-heading
+						h3 报名区
+							span &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;同学,你已经
+							span(style="color:#e00010;font-size:20px") 报名成功
+							span ,欢迎加入 
+					.panel-body
+						ul.media-list
+							dl.dl-horizontal
+								dt 时间
+								dd 姓名
+								hr								
+							each item in applys
+								dl.dl-horizontal
+									dt #{moment(item.meta.updateAt).format('YYYY-MM-DD HH:mm:ss')}
+									dd=item.name
+										span &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;恭喜
+										span(style="color:#e00010;font-size:20px") #{item.name}
+										span 同学,报名成功
+									hr						
+			.col-md-1
+			.col-md-5(style="float:right")
+				dl.dl-horizontal
+					dt 活动名字
+					dd=movie.title
+					dt 承办单位
+					dd=movie.doctor
+					dt 年份
+					dd=movie.year
+					dt 简介
+					dd=movie.summary
+
+	script(src="/js/detail.js")
