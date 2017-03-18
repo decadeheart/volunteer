@@ -33,16 +33,7 @@ exports.detail=function(req,res){
     }
 
     //admin page
-exports.new =function(req,res){
-    Category.find({},function(err,categories){
-        res.render('admin', {
-            title: '后台录入页',
-            categories:categories,
-            movie: {}
-        })
 
-    })
-}
 exports.add =function(req,res){
     Category.find({},function(err,categories){
         res.render('admin', {
@@ -70,6 +61,7 @@ exports.update=function(req,res){
             })
         }
     }
+    //update movie
 exports.updateMovie=function(req,res){
         var id = req.params.id
 
@@ -110,30 +102,6 @@ exports.savePoster=function(req,res,next){
     }
 }
 
-// //admin flash
-// exports.saveVideo=function(req,res,next){
-//     var videoData=req.files.uploadVideo
-//     var videoPath=videoData.path
-//     var originalFilename=videoData.originalFilename
-
-//     console.log(req.files)
-//     if(originalFilename){
-//         fs.readFile(videoPath,function(err,data){
-//             var timestamp=Date.now()
-//             var type=videoData.type.split('/')[1]
-//             var flash=timestamp+'.'+type
-//             var newPath=path.join(__dirname,'../../','/public/upload/'+flash)
-            
-//             fs.writeFile(newPath, data, function(err){
-//                 req.flash=flash
-//                 next()
-//             })
-//         })
-//     }
-//     else{
-//         next()
-//     }
-// }
 
 // admin post movie
 exports.save= function(req,res){
@@ -208,7 +176,7 @@ exports.group =function(req,res) {
             console.log(err)
            } 
            res.render('list',{
-            title:'list',
+            title:'列表页',
             movies:movies
            })
         })
@@ -232,12 +200,12 @@ exports.del=function(req,res){
 exports.control=function(req,res){
     Movie.find({},function(err,movies){
         res.render('control',{
-            title:'control',
+            title:'控制台',
             movies:movies
         })
     })
 }
-
+//success take part in 
 exports.success=function(req,res){
         var id = req.params.id
         Movie.findById(id, function(err, movie) {
@@ -253,6 +221,7 @@ exports.success=function(req,res){
                 })
         })
     }
+//apply in activity
 exports.apply=function(req,res){
         var id = req.params.id
         Movie.findById(id, function(err, movie) {

@@ -58,7 +58,7 @@ block content
 					dt 简介
 					dd=movie.summary
 					dd
-						a.btn.btn-primary(href="#",data-toggle="modal",data-target="#applyModal",role="button") 我要报名
+						a.btn(href="#",data-toggle="modal",data-target="#applyModal",role="button",style="background-color:#e00010;color:white") 我要报名
 						#applyModal.modal.fade
 							.modal-dialog
 								.modal-content
@@ -68,19 +68,22 @@ block content
 											input(type="hidden",name="apply[movie]",value="#{movie._id}")
 											.form-group
 												label(for="applyName") 姓名
-												input#applyName.form-control(name="apply[name]",type="text")
+												input#applyName.form-control(name="apply[name]",type="text",placeholder="请务必填写真名")
+											.form-group
+												label(for="applyCourse") 学号
+												input#applyCourse.form-control(name="apply[ID]",type="text",placeholder="本科生务必填写准确学号用以申请工时")
 											.form-group
 												label(for="applyCourse") 学院班级
-												input#applyCourse.form-control(name="apply[course]",type="text")
+												input#applyCourse.form-control(name="apply[course]",type="text",placeholder="eg:软工1502班")
 											.form-group
 												label(for="applyContact") 电话号码
-												input#applyContact.form-control(name="apply[contact]",type="text")
+												input#applyContact.form-control(name="apply[contact]",type="text",placeholder="请务必填写准确(毕竟没有短信验证)")
 											.form-group
 												label(for="applySparetime") 空闲时间
-												input#applySparetime.form-control(name="apply[sparetime]",type="text")            	
+												input#applySparetime.form-control(name="apply[sparetime]",type="text",placeholder="eg:1-9周周日,2-5周周四下午")            	
 											.form-group
 												label(for="applyInformation") 备注
-												input#applyInformation.form-control(name="apply[information]",type="text")
+												textarea#applyInformation.form-control(name="apply[information]",type="text",row="3",placeholder="可以填上特殊要求,例如虐狗组,基友组,全班桶")
 										.modal-footer
 											button.btn.btn-default(type="button",data-dismiss="modal") 关闭
 											button.btn.btn-success(type="submit") 提交

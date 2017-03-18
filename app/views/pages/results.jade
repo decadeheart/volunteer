@@ -15,7 +15,7 @@ block content
 										img(src="/upload/#{item.poster}", alt="#{item.title}")
 									.caption
 										h4 #{item.title}
-										p: a.btn.btn-primary(href="/movie/#{item._id}", role="button") 观看预告片
+										p: a.btn(href="/movie/#{item._id}", role="button",style="background-color:#e00010;color:white") 查看详情
 			ul.pagination
 				- for (var i=0;i<totalPage;i++){
 					- if(currentPage==(i+1)){

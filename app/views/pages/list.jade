@@ -20,7 +20,7 @@ block content
 							td #{item.title}
 							td #{item.doctor}
 							td #{item.year}
-							td #{moment(item.meta.updateAt).format('MM/DD/YYYY')}
+							td #{moment(item.meta.updateAt).format('YYYY-MM-DD HH:mm:ss')}
 							td #{item.pv}
 							td: a(target="_blank", href="../../movie/#{item._id}") 观看
 							td: a(target="_blank", href="../movie/update/#{item._id}") 修改

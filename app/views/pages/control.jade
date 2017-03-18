@@ -6,7 +6,7 @@ block content
 			.row
 				.col-md-3
 					.list-group#about-list
-						a.list-group-item.active(href="#") 控制台
+						a.list-group-item(href="#",style="background-color:#e00010;color:white") 控制台
 						a.list-group-item(href="/") 首页
 						a.list-group-item(href="/movie") 活动录入
 						a.list-group-item(href="/post") 帖子录入
@@ -15,7 +15,7 @@ block content
 						a.list-group-item(href="/postlist") 帖子列表
 				.col-md-9#about-content
 					.panel.panel-default
-						.panel-heading 最新帖子
+						.panel-heading(style="background-color:#e00010;color:white") 管理活动
 						.panel-body
 							.row 
 								each item in movies
@@ -23,5 +23,5 @@ block content
 										span #{moment(item.meta.updateAt).format('MM/DD/YYYY')}&nbsp;&nbsp;
 										span #{item.title}
 										span(style="float:right") 
-											a.btn(href="/admin/movie/#{item._id}", role="button",style="background-color:#e00010;color:white") admin
+											a.btn(href="/admin/movie/#{item._id}", role="button",style="background-color:#e00010;color:white") 管理
 									hr

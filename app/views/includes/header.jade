@@ -13,7 +13,7 @@
               span.glyphicon.glyphicon-search(aria-hidden="true")
             input.form-control(type="text",name="q")
             span.input-group-btn
-              button.btn.btn-default(type="sybmit") 搜索
+              button.btn.btn-default(type="sybmit",style="background-color:#e00010;color:white") 搜索
 .col-md-2
   ul.nav.nav-pills.nav-stacked#nav-text
     li(style="background-color:#e00010")
@@ -34,7 +34,7 @@
           a.navbar-link(href="/logout") 登出
       else
         p.navbar-text.navbar-right
-          a.navbar-link(href="#",data-toggle="modal",data-target="#signupModal") 注册
+          a.navbar-link(href="/signup") 注册
           span &nbsp;|&nbsp; 
           a.navbar-link(href="#",data-toggle="modal",data-target="#signinModal") 登录
 #signupModal.modal.fade
@@ -73,12 +73,16 @@ footer.navbar-fixed-bottom.footer(style="background-color:#e00010")
   .container
     .row
       .col-md-3
-        img(src="/images/qrcode.jpg")
+        img#foo_image(src="/images/qrcode.jpg",alt="如果有问题,可以扫一扫添加我的微信",title="点击可显示微信大图")
+        #fooModal.fooModal
+          span.fooClose(onclick="document.getElementsById(fooModal).style.display='none'")&times;
+          img.foo_modal-content(src="/images/wechat.jpg",style="width:400px;height:800px;margin-left:40%")
+          #foo_caption
       .col-md-4
-        p &copy;&nbsp;2017&nbsp&nbsp;华中大义工部
+        p &copy;&nbsp;2017&nbsp;华中大义工部&nbsp;powered by decade
       .col-md-4
         p
-          a(href="#") GitHub
+          a(href="http://decadexun.cn") decade的博客
           span &nbsp;|&nbsp;
           a(href="#") 新浪微博
       .col-md-1
