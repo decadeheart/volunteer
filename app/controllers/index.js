@@ -7,7 +7,7 @@ exports.index =function(req,res){
             .populate({
                 path:'movies',
                 select:'title poster',
-                options:{limit:6}
+                options:{limit:4}
             })
             .exec(function(err,categories){
             if (err) {

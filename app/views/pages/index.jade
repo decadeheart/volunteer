@@ -6,16 +6,20 @@ block content
       .box_modal-content
         .mySlides
           .numberText 1 / 4
-          img(src="/images/v1.jpg", alt="1",style="width:100%")
+          a(href="/movie/58cd6d252cb3e227d834cb54")
+            img(src="/images/v1.jpg", alt="1",style="width:100%")
         .mySlides
           .numberText 2 / 4
-          img(src="/images/v2.jpg", alt="2",style="width:100%")
+          a(href="/movie/58cd6e572cb3e227d834cb58")
+            img(src="/images/v2.jpg", alt="2",style="width:100%")
         .mySlides
           .numberText 3 / 4
-          img(src="/images/v3.jpg", alt="3",style="width:100%")
+          a(href="/movie/58cd70202cb3e227d834cb60")
+            img(src="/images/v3.jpg", alt="3",style="width:100%")
         .mySlides
           .numberText 4 / 4
-          img(src="/images/v4.jpg", alt="4",style="width:100%")
+          a(href="/movie/58cd6f4e2cb3e227d834cb5c")
+            img(src="/images/v4.jpg", alt="4",style="width:100%")
         a(onclick="plusSlides(-1)",class="prev")&#10094;
         a(onclick="plusSlides(1)",class="next")&#10095;
         .box_caption-container
@@ -65,7 +69,7 @@ block content
           .panel-body
             if cat.movies && cat.movies.length>0
               each item in cat.movies
-                .col-md-2
+                .col-md-3
                   .thumbnail.image_size
                     a(href="/movie/#{item._id}")
                       if item.poster.indexOf('http')>-1
