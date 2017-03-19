@@ -12,7 +12,7 @@ block content
 							.col-md-2
 								.thumbnail
 									a(href="/movie/#{item._id}")
-										img(src="/upload/#{item.poster}", alt="#{item.title}")
+										img(src="/upload/#{item.poster}", alt="#{item.title}",style="height:100px")
 									.caption
 										h4 #{item.title}
 										p: a.btn(href="/movie/#{item._id}", role="button",style="background-color:#e00010;color:white") 查看详情
