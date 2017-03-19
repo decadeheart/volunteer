@@ -189,7 +189,7 @@ app.get('/apply',function(req,res){
 
     //Movie
     app.get('/control',User.signinRequired,User.adminRequired,Movie.control)
-    app.get('/admin/movie/:id',Movie.apply,User.signinRequired,User.adminRequired)
+    app.get('/admin/movie/:id',User.signinRequired,User.adminRequired,Movie.apply)
     app.get('/success/movie/:id',Movie.success)
     app.get('/movie/:id', Movie.detail)
     app.get('/movie',User.signinRequired,User.adminRequired,Movie.add)
