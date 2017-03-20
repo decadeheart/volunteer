@@ -1,83 +1,83 @@
 extends ../layout
 
 block content
-  .container
-    .col-md-10(style="margin-bottom:40px")
-      .box_modal-content
-        .mySlides
-          .numberText 1 / 4
-          a(href="/movie/58cd6d252cb3e227d834cb54")
-            img(src="/images/v1.jpg", alt="1",style="width:100%")
-        .mySlides
-          .numberText 2 / 4
-          a(href="/movie/58cd6e572cb3e227d834cb58")
-            img(src="/images/v2.jpg", alt="2",style="width:100%")
-        .mySlides
-          .numberText 3 / 4
-          a(href="/movie/58cd70202cb3e227d834cb60")
-            img(src="/images/v3.jpg", alt="3",style="width:100%")
-        .mySlides
-          .numberText 4 / 4
-          a(href="/movie/58cd6f4e2cb3e227d834cb5c")
-            img(src="/images/v4.jpg", alt="4",style="width:100%")
-        a(onclick="plusSlides(-1)",class="prev")&#10094;
-        a(onclick="plusSlides(1)",class="next")&#10095;
-        .box_caption-container
-          h3#caption
-        .column
-          img.demo.cursor(alt="华中科技大学软件学院义工部东湖磨山义工",src="/images/v1.jpg",style="width:100%",onclick="currentSlide(1)")
-        .column
-          img.demo.cursor(alt="华中科技大学软件学院义工部东图书馆义工",src="/images/v2.jpg",style="width:100%",onclick="currentSlide(2)")
-        .column
-          img.demo.cursor(alt="华中科技大学软件学院义工部小红袄服务队",src="/images/v3.jpg",style="width:100%",onclick="currentSlide(3)")
-        .column
-          img.demo.cursor(alt="华中科技大学软件学院义工部啄木鸟维修队",src="/images/v4.jpg",style="width:100%",onclick="currentSlide(4)")
-    //-   #myCarousel.carousel.slide
-    //-     ol.carousel-indicators
-    //-       li.active(data-target="#myCarousel",data-slide-to="0")
-    //-       li(data-target="#myCarousel",data-slide-to="1")
-    //-       li(data-target="#myCarousel",data-slide-to="2")
-    //-     .carousel-inner
-    //-       .item.active
-    //-         img(src="/images/v1.jpg",alt="First slide")
-    //-         .carousel-caption 
-    //-           h1 华中科技大学软件学院义工部东湖磨山义工
-    //-       .item
-    //-         img(src="/images/v2.jpg",alt="Second slide")
-    //-         .carousel-caption 
-    //-           h1 华中科技大学软件学院义工部东图书馆义工
-    //-       .item
-    //-         img(src="/images/v3.jpg",alt="Third silde")
-    //-         .carousel-caption 
-    //-           h1 华中科技大学软件学院义工部校医院义工
-    //-     a.carousel-control.left(href="#myCarousel",data-slide="prev") &lsaquo;
-    //-     a.carousel-control.right(href="#myCarousel",data-slide="next") &rsaquo;
-    .col-md-2(style="margin-top:120px")
-        .panel.panel-default(style="margin-top")
-          .panel-heading(style="background-color:#e00010") 公告
-          .panel-body
-            p 1>欢迎各位同学参加义工
-            p 2>社区板块功能暂时尚未开放
-            p 3>网站刚建立,出现bug请谅解,有问题及时反馈,谢谢大家      
-  .container(style="margin-top:40px")
-    .row
-      each cat in categories
-        .panel.panel-default
-          .panel-heading
-            h4 
-              a(href='/results?cat=#{cat._id}&p=0') #{cat.name}
-          .panel-body
-            if cat.movies && cat.movies.length>0
-              each item in cat.movies
-                .col-md-3
-                  .thumbnail.image_size
-                    a(href="/movie/#{item._id}")
-                      if item.poster.indexOf('http')>-1
-                        img(src="#{item.poster}", alt="#{item.title}")
-                      else
-                        img(src="/upload/#{item.poster}", alt="#{item.title}",style="height:100px")
+  .col-md-8(style="margin-bottom:40px")
+    .box_modal-content
+      .mySlides
+        .numberText 1 / 4
+        a(href="/movie/58cd6d252cb3e227d834cb54")
+          img(src="http://res.cloudinary.com/dyb29pfpm/image/upload/c_scale,w_2082/v1490006809/test.jpg", alt="1",style="width:100%")
+      .mySlides
+        .numberText 2 / 4
+        a(href="/movie/58cd6e572cb3e227d834cb58")
+          img(src="http://res.cloudinary.com/dyb29pfpm/image/upload/c_scale,w_477/v1490008448/v2.jpg", alt="2",style="width:100%")
+      .mySlides
+        .numberText 3 / 4
+        a(href="/movie/58cd70202cb3e227d834cb60")
+          img(src="http://res.cloudinary.com/dyb29pfpm/image/upload/c_scale,w_517/v1490008405/v3.jpg", alt="3",style="width:100%")
+      .mySlides
+        .numberText 4 / 4
+        a(href="/movie/58cd6f4e2cb3e227d834cb5c")
+          img(src="http://res.cloudinary.com/dyb29pfpm/image/upload/c_scale,w_644/v1490008442/v4.jpg", alt="4",style="width:100%")
+      a(onclick="plusSlides(-1)",class="prev")&#10094;
+      a(onclick="plusSlides(1)",class="next")&#10095;
+      .box_caption-container
+        h3#caption
+      .column
+        img.demo.cursor(alt="华中科技大学软件学院义工部东湖磨山义工",src="http://res.cloudinary.com/dyb29pfpm/image/upload/c_scale,w_2082/v1490006809/test.jpg",style="width:100%",onclick="currentSlide(1)")
+      .column
+        img.demo.cursor(alt="华中科技大学软件学院义工部东图书馆义工",src="http://res.cloudinary.com/dyb29pfpm/image/upload/c_scale,w_2025/v1490008448/v2.jpg",style="width:100%",onclick="currentSlide(2)")
+      .column
+        img.demo.cursor(alt="华中科技大学软件学院义工部小红袄服务队",src="http://res.cloudinary.com/dyb29pfpm/image/upload/c_scale,w_517/v1490008405/v3.jpg",style="width:100%",onclick="currentSlide(3)")
+      .column
+        img.demo.cursor(alt="华中科技大学软件学院义工部啄木鸟维修队",src="http://res.cloudinary.com/dyb29pfpm/image/upload/c_scale,w_644/v1490008442/v4.jpg",style="width:100%",onclick="currentSlide(4)")
+  //-   #myCarousel.carousel.slide
+  //-     ol.carousel-indicators
+  //-       li.active(data-target="#myCarousel",data-slide-to="0")
+  //-       li(data-target="#myCarousel",data-slide-to="1")
+  //-       li(data-target="#myCarousel",data-slide-to="2")
+  //-     .carousel-inner
+  //-       .item.active
+  //-         img(src="/images/v1.jpg",alt="First slide")
+  //-         .carousel-caption 
+  //-           h1 华中科技大学软件学院义工部东湖磨山义工
+  //-       .item
+  //-         img(src="/images/v2.jpg",alt="Second slide")
+  //-         .carousel-caption 
+  //-           h1 华中科技大学软件学院义工部东图书馆义工
+  //-       .item
+  //-         img(src="/images/v3.jpg",alt="Third silde")
+  //-         .carousel-caption 
+  //-           h1 华中科技大学软件学院义工部校医院义工
+  //-     a.carousel-control.left(href="#myCarousel",data-slide="prev") &lsaquo;
+  //-     a.carousel-control.right(href="#myCarousel",data-slide="next") &rsaquo;
+  .col-md-2(style="margin-top:120px")
+      .panel.panel-default(style="margin-top")
+        .panel-heading(style="background-color:#e00010") 公告
+        .panel-body
+          p 1>欢迎各位同学参加义工
+          p 2>社区板块功能暂时尚未开放
+          p 3>网站刚建立,出现bug请谅解,有问题及时反馈,谢谢大家    
+  .col-md-12(style="margin-top:40px")
+    .container  
+      .row
+        each cat in categories
+          .panel.panel-default
+            .panel-heading
+              h4 
+                a(href='/results?cat=#{cat._id}&p=0') #{cat.name}
+            .panel-body
+              if cat.movies && cat.movies.length>0
+                each item in cat.movies
+                  .col-md-3
+                    .thumbnail.image_size
+                      a(href="/movie/#{item._id}")
+                        if item.poster.indexOf('http')>-1
+                          img(src="#{item.poster}", alt="#{item.title}")
+                        else
+                          img(src="/upload/#{item.poster}", alt="#{item.title}",style="height:50%")
 
-                    .caption
-                      h4 #{item.title}
-                      p: a.btn(href="/movie/#{item._id}", role="button",style="background-color:#e00010;color:white") 查看详情
+                      .caption
+                        h4 #{item.title}
+                        p: a.btn(href="/movie/#{item._id}", role="button",style="background-color:#e00010;color:white") 查看详情
   script(src="/js/lightBox.js")

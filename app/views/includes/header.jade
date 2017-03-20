@@ -1,11 +1,12 @@
 .container
   .row
-    .page-header.clearfix(style="margin-top:30px")
-      .col-md-1
-        img(src="/images/logo.jpg",style="width:100px;height:100px")
-      .col-md-3(style="padding-left:10px;float:left")
-        h3=title  
-        small 华中科技大学院系义工活动平台
+    .page-header.clearfix
+      .col-md-4
+        span(style="float:left")
+          img(src="http://res.cloudinary.com/dyb29pfpm/image/upload/v1490009076/logo_qb6kk1.png",style="width:100px;height:100px")
+        span(style="margin-top:100px")
+          h3=title  
+          small 华中科技大学院系义工活动平台
       .col-md-8(style="margin-top:40px")
         form(mthod="GET",action="/results")
           .input-group.col-sm-4.pull-right
@@ -71,10 +72,10 @@ footer.navbar-fixed-bottom.footer(style="background-color:#e00010")
   .container
     .row
       .col-md-3
-        img#foo_image(src="/images/qrcode.jpg",alt="如果有问题,可以扫一扫添加我的微信",title="点击可显示微信大图")
+        img#foo_image(src="http://res.cloudinary.com/dyb29pfpm/image/upload/v1490008160/qrcode_rfjw1d.jpg",alt="如果有问题,可以扫一扫添加我的微信",title="点击可显示微信大图")
         #fooModal.fooModal
           span.fooClose(onclick="document.getElementsById(fooModal).style.display='none'")&times;
-          img.foo_modal-content(src="/images/wechat.jpg",style="width:400px;height:800px;margin-left:40%")
+          img.foo_modal-content(src="http://res.cloudinary.com/dyb29pfpm/image/upload/v1490008143/wechat_kjpikl.jpg",style="width:400px;height:800px;margin-left:40%")
           #foo_caption
       .col-md-4
         p &copy;&nbsp;2017&nbsp;华中大义工部&nbsp;powered by decade
