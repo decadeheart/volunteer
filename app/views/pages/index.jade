@@ -70,12 +70,12 @@ block content
               if cat.movies && cat.movies.length>0
                 each item in cat.movies
                   .col-md-3
-                    .thumbnail.image_size
+                    .thumbnail(style="height:300px")
                       a(href="/movie/#{item._id}")
                         if item.poster.indexOf('http')>-1
                           img(src="#{item.poster}", alt="#{item.title}")
                         else
-                          img(src="/upload/#{item.poster}", alt="#{item.title}",style="height:50%")
+                          img(src="http://res.cloudinary.com/dyb29pfpm/image/upload/c_scale,w_2082/v1490006809/test.jpg", alt="#{item.title}",style="height:70%;width:100%")
 
                       .caption
                         h4 #{item.title}
