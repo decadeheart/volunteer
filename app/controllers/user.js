@@ -22,7 +22,7 @@ exports.showSignin=function(req,res){
                 console.log(err)
              }
             if (user) {
-                return res.redirect('/signin')
+                return res.redirect('/acmsuccess')
             } else {
                 user = new User(_user)
 
@@ -30,7 +30,7 @@ exports.showSignin=function(req,res){
                     if (err) {
                         console.log(err)
                     }
-                    res.redirect('/signin')
+                    res.redirect('/acmsuccess')
                 })
             }
         })
@@ -42,6 +42,11 @@ exports.signin=function(req,res){
         var name = _user.name
         var password = _user.password
         var email=_user.email
+        var acmgroup=_user.acmgroup
+        var acmcaptain=_user.acmcaptain
+        var acmmember1=_user.acmmember1
+        var acmmember2=_user.acmmember2 
+        var acmphone=_user.acmphone
         User.findOne({ name: name }, function(err, user) {
             if (err) {
                 console.log(err)

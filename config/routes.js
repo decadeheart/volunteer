@@ -18,6 +18,20 @@ module.exports = function(app) {
         
         next()
     })
+
+
+//ACM
+app.get('/acmsuccess',function(req,res){
+  res.render('acmsuccess',{
+    title:'报名成功',
+  });
+});
+app.get('/acmcontest',function(req,res){
+  res.render('acmsignup',{
+    title:'华中科技大学ACM邀请赛报名',
+  });
+});
+
 app.get('/post/:id',function(req,res){
   
 // req.params 获取路径变量值，这里指id这个变量

@@ -9,7 +9,7 @@ var multipart=require('connect-multiparty')
 
 var morgan = require('morgan')
 // var serveStatic=require('serve-static')
-var port = process.env.PORT || 80
+var port = process.env.PORT || 8080
 var app = express()
 var fs=require('fs')
 var dbUrl = 'mongodb://localhost/volunteer'

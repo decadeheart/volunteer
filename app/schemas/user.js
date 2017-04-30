@@ -9,6 +9,12 @@ var UserSchema = new mongoose.Schema({
 	},
 	password:String,
 	email:String,
+	acmgroup:String,
+	acmcaptain:String,
+	acmmember1:String,
+	acmmember2:String,
+	acmphone:String,
+
 	//0:nomal  user 
 	//1:verified  user 
 	//2:professonal user
